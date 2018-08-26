@@ -3,31 +3,25 @@ package ru.zinnurov;
 public class IT_books {
 
     private String book;
-    private String[] itbooks = new String[] {"Совершенный код", "Справочкик программиста",
-            "Структуры и Итерпретация Компьютерных программ", "Философия Java" };
+    private String[] itbooks = new String[] {"1. Совершенный код", "2. Справочкик программиста",
+            "3. Структуры и Итерпретация Компьютерных программ", "4. Философия Java" };
 
     public void whatBook(String book) {
         this.book = book;
     }
 
-    protected String getBook(int key) {
-        return this.itbooks[key];
+    protected String getBook(int i) {
+        return this.itbooks[i];
     }
-    public void searchBook() {
-        int k = 0;
-        for(int i = 0; i < this.itbooks.length; i++) {
-            if(this.book.equalsIgnoreCase(this.itbooks[i])) {
-                System.out.println("Мы нашли вашу книгу! ");
+    public void listBook() {
+        for(String i : itbooks) System.out.println(i);
+    }
 
-                String books = getBook(i);
-                System.out.println("Вот, держите книгу " + books);
-                k = 1;
-                break;
-
-            }
-        }
-        if(k == 0) {
-            System.out.println("К сожалению такой книги нет");
+    public void giveBook(int key) {
+        if(key >= this.itbooks.length ) System.out.println("Введите меньшее число!");
+        else {
+            String book = getBook(key-1);
+            System.out.println("Вот ваша книга: " + book);
         }
     }
 }

@@ -39,25 +39,49 @@ public class Main {
 
         if(choice == 1) {
             IT_books it = new IT_books();
-            System.out.println("Поиск по названию :");
-            choose = in.nextLine();
-            it.whatBook(choose);
-            it.searchBook();
+            System.out.println("Выберите книгу :");
+            it.listBook();
+            while (true) {
+                if (in.hasNextInt()) {
+                    it.giveBook(in.nextInt());
+                    break;
+                } else {
+                    System.out.println("Введите число!");
+                    in.next();
+
+                }
+            }
+
         }
         else if(choice == 2) {
             history_books hb = new history_books();
-            System.out.println("Поиск  названию :");
-            choose = in.nextLine();
-            hb.whatBook(choose);
-            hb.searchBook();
+            System.out.println("Выберите книгу :");
+            hb.listBook();
+            while (true) {
+                if (in.hasNextInt()) {
+                    hb.giveBook(in.nextInt());
+                    break;
+                } else {
+                    System.out.println("Введите число!");
+                    in.next();
 
+                }
+            }
         }
         else {
             gastronomy_books gb = new gastronomy_books();
-            System.out.println("Поиск по названию :");
-            choose = in.nextLine();
-            gb.whatBook(choose);
-            gb.searchBook();
+            System.out.println("Выберите книгу :");
+            gb.listBook();
+            while (true) {
+                if (in.hasNextInt()) {
+                    gb.giveBook(in.nextInt());
+                    break;
+                } else {
+                    System.out.println("Введите число!");
+                    in.next();
+
+                }
+            }
         }
 
 

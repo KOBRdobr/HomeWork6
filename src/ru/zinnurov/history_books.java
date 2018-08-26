@@ -7,4 +7,8 @@ public class history_books extends IT_books {
     protected String getBook(int key) {
         return this.historyBooks[key];
     }
+    public void listBook() {
+        for(String i : historyBooks) System.out.println(i);
+
+    }
 }

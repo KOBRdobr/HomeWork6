@@ -7,4 +7,8 @@ public class gastronomy_books  extends IT_books{
     protected String getBook(int key) {
         return this.gastronomyBooks[key];
     }
+    public void listBook() {
+        for(String i : gastronomyBooks) System.out.println(i);
+
+    }
 }
