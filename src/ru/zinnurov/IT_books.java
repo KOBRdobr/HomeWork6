@@ -15,8 +15,8 @@ public class IT_books {
     }
     public void searchBook() {
         int k = 0;
-        for(int i = 0; i < itbooks.length; i++) {
-            if(book.equalsIgnoreCase(itbooks[i])) {
+        for(int i = 0; i < this.itbooks.length; i++) {
+            if(this.book.equalsIgnoreCase(this.itbooks[i])) {
                 System.out.println("Мы нашли вашу книгу! ");
 
                 String books = getBook(i);

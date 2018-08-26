@@ -39,28 +39,25 @@ public class Main {
 
         if(choice == 1) {
             IT_books it = new IT_books();
-
-            System.out.println("Поиск по названию или по первой букве?");
-            System.out.println("1. По названию");
-            System.out.println("2. По первой букве");
-            System.out.println("3. Выйти");
-            choice = input();
-            if(choice == 1) {
-                choose = in.nextLine();
-                it.whatBook(choose);
-                it.searchBook();
-            }
-            else if (choice == 2) {
-
-            }
+            System.out.println("Поиск по названию :");
+            choose = in.nextLine();
+            it.whatBook(choose);
+            it.searchBook();
         }
         else if(choice == 2) {
             history_books hb = new history_books();
-
+            System.out.println("Поиск  названию :");
+            choose = in.nextLine();
+            hb.whatBook(choose);
+            hb.searchBook();
 
         }
         else {
             gastronomy_books gb = new gastronomy_books();
+            System.out.println("Поиск по названию :");
+            choose = in.nextLine();
+            gb.whatBook(choose);
+            gb.searchBook();
         }
 
 
