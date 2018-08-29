@@ -10,39 +10,33 @@ public class Main {
 
     //Выбор жанра и книги
     private static void choiceGenre() {
-
         int choice = input(); //Выбор жанра
-
-        while(true) {
-            if (choice != 0 || choice > 4) {
-
-                if (choice == 1) {
-                    IT itBooks = new IT();
-                    itBooks.listBooks();
-                    System.out.println("\nКакую книгу вы решили выбрать?\n");
-                    choice = input();
-                    itBooks.choiceBook(choice);
-                } else if (choice == 2) {
-                    History historyBooks = new History();
-                    historyBooks.listBooks();
-                    System.out.println("\nКакую книгу вы решили выбрать?\n");
-                    choice = input();
-                    historyBooks.choiceBook(choice);
-                } else if (choice == 3) {
-                    Gastronomy gastronomyBooks = new Gastronomy();
-                    gastronomyBooks.listBooks();
-                    System.out.println("\nКакую книгу вы решили выбрать?\n");
-                    choice = input();
-                    gastronomyBooks.choiceBook(choice);
-                } else {
-                    Fantazy fantazyBooks = new Fantazy();
-                    fantazyBooks.listBooks();
-                    System.out.println("\nКакую книгу вы решили выбрать?\n");
-                    choice = input();
-                    fantazyBooks.choiceBook(choice);
-                }
-            } else System.out.println("Введите числа от 1 до 4!");
+        if (choice == 1) {
+            IT itBooks = new IT();
+            itBooks.listBooks();
+            System.out.println("\nКакую книгу вы решили выбрать?\n");
+            choice = input();
+            itBooks.choiceBook(choice);
+        } else if (choice == 2) {
+            History historyBooks = new History();
+            historyBooks.listBooks();
+            System.out.println("\nКакую книгу вы решили выбрать?\n");
+            choice = input();
+            historyBooks.choiceBook(choice);
+        } else if (choice == 3) {
+            Gastronomy gastronomyBooks = new Gastronomy();
+            gastronomyBooks.listBooks();
+            System.out.println("\nКакую книгу вы решили выбрать?\n");
+            choice = input();
+            gastronomyBooks.choiceBook(choice);
+        } else if (choice == 4) {
+            Fantazy fantazyBooks = new Fantazy();
+            fantazyBooks.listBooks();
+            System.out.println("\nКакую книгу вы решили выбрать?\n");
+            choice = input();
+            fantazyBooks.choiceBook(choice);
         }
+
 
     }
 
@@ -54,6 +48,10 @@ public class Main {
         while(true) {
             if(in.hasNextInt()) {
                 choice = in.nextInt();
+                if(choice == 0 | choice > 4) {
+                    System.out.println("Введите числа от 1 до 4!");
+                    continue;
+                }
                 break;
             }
             else {
