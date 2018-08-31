@@ -1,13 +1,10 @@
 package ru.zinnurov;
 
-public class IT {
-    String[] books = new String[] {"Совершенный код", "Справочник разработчика", "Алгоритмы", "Базы данных"};
+public class Book {
+    private String[] books;
 
-    protected String getGenre(int i){
-        return this.books[i];
-    }
-    protected String getBook(int key) {
-        return this.books[key-1];
+    public Book(String[] books) {
+        this.books = books;
     }
 
     public void listBooks() {
@@ -15,6 +12,7 @@ public class IT {
             System.out.println(getGenre(i));
         }
     }
+
     public void choiceBook(int key) {
         if(key > this.books.length) {
             System.out.println("Такой книги нет!");
@@ -25,7 +23,12 @@ public class IT {
         }
     }
 
+    protected String getGenre(int i){
+        return this.books[i];
+    }
 
+    protected String getBook(int key) {
+        return this.books[key-1];
+    }
 
 }
-

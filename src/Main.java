@@ -1,40 +1,23 @@
-import ru.zinnurov.Fantazy;
-import ru.zinnurov.Gastronomy;
-import ru.zinnurov.IT;
-import ru.zinnurov.History;
+import ru.zinnurov.*;
+
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Main {
 
+
     //Выбор жанра и книги
     private static void choiceGenre() {
         int choice = input(); //Выбор жанра
-        if (choice == 1) {
-            IT itBooks = new IT();
-            itBooks.listBooks();
-            System.out.println("\nКакую книгу вы решили выбрать?\n");
-            choice = input();
-            itBooks.choiceBook(choice);
-        } else if (choice == 2) {
-            History historyBooks = new History();
-            historyBooks.listBooks();
-            System.out.println("\nКакую книгу вы решили выбрать?\n");
-            choice = input();
-            historyBooks.choiceBook(choice);
-        } else if (choice == 3) {
-            Gastronomy gastronomyBooks = new Gastronomy();
-            gastronomyBooks.listBooks();
-            System.out.println("\nКакую книгу вы решили выбрать?\n");
-            choice = input();
-            gastronomyBooks.choiceBook(choice);
-        } else if (choice == 4) {
-            Fantazy fantazyBooks = new Fantazy();
-            fantazyBooks.listBooks();
-            System.out.println("\nКакую книгу вы решили выбрать?\n");
-            choice = input();
-            fantazyBooks.choiceBook(choice);
-        }
+        Library lib = new Library(choice);
+        String[] books = lib.createBook();
 
+        Book book = new Book(books);
+        book.listBooks();
+
+        System.out.println("\nКакую книгу вы решили выбрать?\n");
+        choice = input();
+        book.choiceBook(choice);
 
     }
 
@@ -43,16 +26,15 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int choice;  //Переменная хранящая выбор пользователя
 
-        while(true) {
-            if(in.hasNextInt()) {
+        while (true) {
+            if (in.hasNextInt()) {
                 choice = in.nextInt();
-                if(choice == 0 | choice > 4) {
+                if (choice == 0 | choice > 4) {
                     System.out.println("Введите числа от 1 до 4!");
                     continue;
                 }
                 break;
-            }
-            else {
+            } else {
                 System.out.println("Введите числа!");
                 in.next();
             }
@@ -69,9 +51,6 @@ public class Main {
         System.out.println("\nКакой жанр вас интересует?\n");
 
         choiceGenre(); //Выбор жанра и книги
-
-
-
 
 
     }
